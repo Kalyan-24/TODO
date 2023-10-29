@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="./css/components/header.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 id="company_name">TODO.</h1>
+
+            <div id="auth_routes">
+
+                <div id="hamburger_menu">
+                    <span></span>
+                    <span style="display: flex;"></span>
+                    <span></span>
+                </div>
+
+                <ul id="user_services">
+                    <li>
+                        <form action="" method="GET">
+                            <input type="button" id="my_profile" value="My Profile" onclick="location.href='/<%= name %>'">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="" method="GET">
+                            <input type="button" id="change_password" value="Change Password" onclick="location.href='/change-password'">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/logout" method="GET">
+                            <input type="submit" id="logout" value="Logout">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

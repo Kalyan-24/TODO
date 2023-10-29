@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/main/style.css">
+    <link rel="stylesheet" href="./css/auth/register.css">
+</head>
+
+<body>
+    <form action="/api/v1/register" method="POST">
+        <h1 id="register_title">Register</h1>
+        <div id="username_container">
+            <label id="username_label" for="user_name_input">
+                <img src="./assets/user_icon.svg" alt="">
+                <input type="text" name="user_name" id="user_name_input" placeholder="User Name" required>
+            </label>
+            <div class="msg_container">
+                <p id="username_availability">*Username already taken</p>
+            </div>
+        </div>
+        <div id="email_container">
+            <label id="email_label" for="email_input">
+                <img src="./assets/mail_icon.svg" alt="">
+                <input type="email" name="email" id="email_input" placeholder="Email" disabled required>
+            </label>
+            <div class="msg_container">
+                <p id="email_availability">*Account already exists</p>
+            </div>
+        </div>
+        <label id="password_label" for="password_input">
+            <img src="./assets/password_lock_icon.svg" alt="">
+            <input type="password" name="password" id="password_input" placeholder="Password" disabled required>
+            <img src="./assets/password_eye_open_icon.svg" alt="" id="password_eye">
+        </label>
+        <label id="confirm_password_label" for="confirm_password_input">
+            <img src="./assets/password_lock_icon.svg" alt="">
+            <input type="password" name="confirm_password" id="confirm_password_input" placeholder="Confirm Password" disabled required>
+            <img src="./assets/password_eye_open_icon.svg" alt="" id="confirm_password_eye">
+        </label>
+
+
+
+        <input type="submit" value="Register" id="register_btn" disabled>
+
+        <div id="login_route_container">
+            <a href="/login" id="login_route">Already have an Account?</a>
+        </div>
+    </form>
+
+
+    <% if(message.length> 0) { %>
+        <div class="error_container">
+            <span id="status">
+                <%= message %>
+            </span>
+            <span>
+                Account already exists
+            </span>
+            <div class="timer"></div>
+        </div>
+    <% } %>
+
+
+    <script src="./js/auth/register.js"></script>
+    <script>
+
+        setInterval(() => {
+            const errorContainer = document.querySelector('.error_container')
+
+            if (errorContainer) {
+                setTimeout(() => {
+                    errorContainer.style.display = 'none'
+                }, 5000)
+            }
+        })
+
+    </script>
+</body>
+
+</html>

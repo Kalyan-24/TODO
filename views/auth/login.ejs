@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/main/style.css">
+    <link rel="stylesheet" href="./css/auth/login.css">
+</head>
+
+<body>
+    <form action="/api/v1/login" method="POST">
+        <h1 id="login_title">Login</h1>
+        <label for="email_input">
+            <img src="./assets/user_icon.svg" alt="">
+            <input type="text" name="email" id="email_input" placeholder="Username or Email" required>
+        </label>
+        <label id="password_label" for="password_input">
+            <img src="./assets/password_lock_icon.svg" alt="">
+            <input type="password" name="password" id="password_input" placeholder="Password" required>
+            <img src="./assets/password_eye_open_icon.svg" alt="" id="password_eye">
+        </label>
+
+        <div style="width: 85%;">
+            <a href="#" id="forgot_password">Forgot Password?</a>
+        </div>
+
+        <input type="submit" value="Login" id="login_btn">
+
+        <div id="register_route_container">
+            <a href="/register" id="register_route">Don't have an Account?</a>
+        </div>
+    </form>
+
+
+    <% if(message.length> 0) { %>
+        <% if(message[0]==='Error' ) { %>
+            <div class="error_container error">
+                <span id="status">
+                    <%= message %>
+                </span>
+                <span>
+                    Invalid Email/Password
+                </span>
+                <div class="timer"></div>
+            </div>
+        <% } %>
+
+        <% if(message[0]==='Something went Wrong!...' ) { %>
+            <div class="error_container error">
+                <span id="status">
+                    Error
+                </span>
+                <span>
+                    <%= message %>
+                </span>
+                <div class="timer"></div>
+            </div>
+        <% } %>
+
+        <% if(message[0]==='Success' ) { %>
+            <div class="error_container success">
+                <span id="status">
+                    <%= message %>
+                </span>
+                <span>
+                    Account Created Successfully
+                </span>
+                <div class="timer"></div>
+            </div>
+        <% } %>
+    <% } %>
+
+    <script src="./js/auth/login.js"></script>
+
+    <script>
+
+        setInterval(() => {
+            const errorContainer = document.querySelector('.error_container')
+
+            if(errorContainer){
+                setTimeout(() => {
+                    errorContainer.style.display = 'none'
+                }, 5000)
+            }
+        })
+
+    </script>
+</body>
+
+</html>

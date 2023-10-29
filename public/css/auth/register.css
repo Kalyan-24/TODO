@@ -1,0 +1,201 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    width: 470px;
+    background-color: #725AC1;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 17px 17px -10px rgba(0, 0, 0, 0.4);
+}
+
+form #register_title{
+    color: #fff;
+    margin: 20px;
+    margin-top: 35px;
+}
+
+form #username_container, form #email_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form #username_container label, form #email_container label{
+    margin: 0;
+}
+
+form #username_container .msg_container, form #email_container .msg_container{
+    width: 100%;
+}
+
+form #username_container p, form #email_container p{
+    margin: 8px 35px;
+    width: fit-content;
+    padding: 0px 20px;
+    border-radius: 2px;
+    background-color: #00ff80;
+    background-color: #f00;
+    color: #fff;
+    visibility: hidden;
+}
+
+form label input{
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    padding: 8px 0;
+}
+form label input:disabled{
+    cursor: not-allowed;
+    background-color: #999;
+}
+
+#register_btn:disabled{
+    cursor: not-allowed;
+    background-color: #00c763b3;
+}
+#register_btn:disabled:hover{
+    background-color: #00c763b3;
+    outline: none;
+}
+
+form label{
+    background-color: #999;
+    padding-right: 10px;
+    border-radius: 2px;
+    width: 85%;
+    margin-bottom: 40px;
+    display: flex;
+}
+
+form #username_label{
+    background-color: white;
+}
+
+form label img{
+    padding: 0 10px;
+    width: 42px;
+}
+
+form label:focus-within{
+    outline: #C0B9DD solid 3px;
+}
+
+form #password_label{
+    margin-top: 0;
+}
+
+form #register_btn{
+    width: 85%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    background-color: #00c763;
+    box-shadow: 0px 18px 15px -15px rgba(0, 0, 0, 0.4);
+    
+}
+form #register_btn:hover{
+    background-color: #00d169;
+    transition: background-color 0.3s;
+}
+form #register_btn:active{
+    outline: #86e3b5 solid 3px;
+}
+
+form #login_route_container{
+    width: 85%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-bottom: 35px;
+}
+form #login_route{
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+form #login_route:hover{
+    text-decoration: underline;
+}
+
+
+.error_container{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: white;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #F00;
+}
+
+.error_container #status{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+
+.error_container #message{
+    color: #ffffffd8;
+}
+
+.error_container .timer{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(255, 99, 99);
+
+    animation: timer 5s;
+}
+
+@keyframes timer{
+    to{
+        width: 0%;
+    }
+}
+
+
+
+@media (max-width: 550px){
+    form{
+        width: 90%;
+    }
+    form #register_title{
+        margin: 15px;
+        margin-top: 25px;
+    }
+    form label{
+        margin: 15px 0;
+    }
+    form #login_route_container{
+        margin-top: 3px;
+        margin-bottom: 25px;
+    }
+
+    .error_container{
+        width: fit-content;
+    }
+}
+

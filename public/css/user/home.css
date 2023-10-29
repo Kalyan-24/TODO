@@ -1,0 +1,238 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+section{
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    padding: 10px 40px;
+    font-size: 24px;
+    
+}
+
+section #noTodoFoundContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+section #noTodoFoundContainer #noTodoFound{
+    opacity: 0.4;
+    color: #000;
+    font-weight: 300;
+    font-style: italic;
+}
+
+section #todoContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+section #todoContainer .todo{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 25px 50px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+section #todoContainer .todo .todoTitle{
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+section #todoContainer .todo .todoDescription{
+    font-weight: 300;
+    font-size: 17px;
+    width: 100%;
+}
+
+section #todoContainer .todo .todoButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section #todoContainer .todo .todoButtons .todoDeleteBtn{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+section #todoContainer .todo .todoButtons .todoDeleteBtn:hover{
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    transition: all 0.3s;
+}
+
+#newTODOContainer{
+    width: 50%;
+    height: 320px;
+    padding: 40px;
+    background-color: #fff;
+    position: fixed;
+    box-shadow: 0px 17px 17px -10px rgba(0, 0, 0, 0.4);
+    transform: translate(50%, 70%);
+    display: none;
+}
+
+#newTODOContainer h4{
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+#newTODOContainer input{
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+#newTODOContainer #newTODOBtnsContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3%;
+    margin-top: 15px;
+}
+#newTODOContainer #newTODOBtnsContainer button{
+    font-size: 18px;
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+#newTODOContainer #newTODOBtnsContainer button:first-child{
+    background-color: white;
+    color: #000;
+    border: 1px solid #000;
+}
+
+#newTODOContainer #newTODOBtnsContainer button:first-child:hover{
+    background-color: #00000020;
+    transition: background-color 0.3s;
+}
+
+#newTODOContainer #newTODOBtnsContainer button:last-child:hover{
+    background-color: white;
+    color: #000;
+    transition: all 0.3s;
+}
+
+#addNewTODO{
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+    background-color: #725AC1;
+    background-color: #000;
+    border-radius: 100vh;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0px 17px 17px -10px rgba(0, 0, 0, 0.4);
+}
+#addNewTODO:hover{
+    background-color: #000000ce;
+    transition: opacity 0.3s;
+}
+#addNewTODO img{
+    width: 40px;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(83deg) brightness(115%) contrast(104%);
+    
+}
+
+.success_container{
+    width: 25%;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: white;
+    padding: 7px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #35a335;
+    z-index: 11;
+}
+
+.success_container #status{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.success_container #message{
+    color: #ffffffd8;
+}
+
+.success_container .timer{
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    left: 0;
+    bottom: 0;
+    background-color: #6fcf7c;
+    animation: timer 5s;
+}
+
+@keyframes timer{
+    to{
+        width: 0%;
+    }
+}
+@media (max-width: 900px){
+    section #todoContainer .todo{
+        width: 100%;
+    }
+
+    #newTODOContainer{
+        width: 90%;
+        height: 320px;
+        transform: translate(6%, 70%);
+    }
+
+    #newTODOContainer #newTODOBtnsContainer{
+        justify-content: center;
+    }
+
+    #newTODOContainer #newTODOBtnsContainer button{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 550px){
+    section{
+        padding: 10px;
+        padding-top: 20px;
+    }
+    section #todoContainer .todo{
+        padding: 25px 15px;
+    }
+    .success_container{
+        width: fit-content;
+    }
+}

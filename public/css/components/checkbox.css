@@ -1,0 +1,60 @@
+.checkboxContainer {
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin: 0 20px;
+    cursor: pointer;
+    font-size: 25px;
+    z-index: 0;
+}
+
+/* Hide the default checkbox */
+.checkboxContainer input {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.checkboxContainer:hover input~.mark {
+    background-color: #aaa;
+    transition: background-color 0.3s;
+}
+
+.checkboxContainer input:checked~.mark {
+    background-color: #000;
+}
+
+/* Create the mark/indicator (hidden when not checked) */
+.mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the mark when checked */
+.checkboxContainer input:checked~.mark:after {
+    display: block;
+}
+
+/* Style the mark/indicator */
+.checkboxContainer .mark:after {
+    left: 9px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}

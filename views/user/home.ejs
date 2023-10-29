@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/main/style.css">
+    <link rel="stylesheet" href="./css/user/home.css">
+    <link rel="stylesheet" href="./css/components/checkbox.css">
+</head>
+
+<body>
+
+    <%- include('../components/header') %>
+
+    <section>
+        <div id="noTodoFoundContainer">
+            <p id="noTodoFound">No TODO's found</p>
+        </div>
+
+        <div id="todoContainer">
+        </div>
+    </section>
+
+    <form id="newTODOContainer">
+        <h4>Title</h4>
+        <input type="text" name="TODOTitle" id="TODOTitleInput" required>
+        <h4>Description</h4>
+        <input type="text" name="TODODescription" id="TODODescriptionInput" required>
+
+        <div id="newTODOBtnsContainer">
+            <button type="button" id="newTODOCancelBtn">Cancel</button>
+            <button type="button" id="newTODOAddBtn">Add Task</button>
+        </div>
+    </form>
+
+    <div id="addNewTODO" style="display: grid;">
+        <img src="./assets/add_icon.svg" alt="">
+    </div>
+
+    <% if(message.length > 0) { %>
+        <div class="success_container">
+            <span id="status">
+                <%= message %>
+            </span>
+            <span>
+                Login Successful
+            </span>
+            <div class="timer"></div>
+        </div>
+    <% } %>
+
+    <script src="./js/user/home.js"></script>
+
+    <script>
+
+        
+        const successContainer = document.querySelector('.success_container')
+        
+        if (successContainer) {
+            const successContainer = document.querySelector('.success_container')
+            setTimeout(() => {
+                document.body.removeChild(successContainer)
+            }, 5000)
+        }
+    </script>
+</body>
+
+</html>
