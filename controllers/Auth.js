@@ -114,7 +114,11 @@ const getRegisterController = (req, res) => {
 }
 
 const postRegisterController = async (req, res) => {
-    const { user_name, email, password } = req.body
+    let {user_name, email} = req.body
+    const { password } = req.body
+
+    user_name = user_name.toLowerCase()
+    email = email.toLowerCase()
 
     res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate')
     res.setHeader('Expires', '-1')
